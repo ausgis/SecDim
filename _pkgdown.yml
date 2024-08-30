@@ -15,6 +15,14 @@ authors:
   Wenbo Lv:
     href: https://spatlyu.github.io/
 
+navbar:
+  components:
+    articles:
+      text: Vignettes
+      menu:
+      - text: The Second Dimension of Spatial Association
+        href: articles/SecDim.html
+
 reference:
 - title: Utils
   contents:
