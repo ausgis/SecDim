@@ -91,7 +91,7 @@ summary(fda.lm)
 
 ## Cross validation
 
-```{r hist2}
+```{r hist2, eval = FALSE}
 R2 <- function(o, p) 1 - sum((o-p)^2)/sum((o-mean(o))^2)
 
 ## Example
@@ -111,7 +111,7 @@ obs$y <- log(obs$y)
 hist(obs$y)
 ```
 
-```{r cross_validation,fig.width=7.5,fig.height=4.5,fig.cap=knitr::asis_output("**Figure 1**. Comparison of cross validation between SDA and FDA models for spatial predictions.")}
+```{r cross_validation,eval = FALSE,fig.width=7.5,fig.height=4.5,fig.cap=knitr::asis_output("**Figure 1**. Comparison of cross validation between SDA and FDA models for spatial predictions.")}
 ################################################
 ## SDA cross validation
 ################################################
@@ -172,6 +172,7 @@ R2(testy$y, fda.lm.pred)
 plot(testy$y, fda.lm.pred, xlim = c(3, 7), ylim = c(3, 7))
 ```
 
+![**Figure 1**. Comparison of cross validation between SDA and FDA models for spatial predictions.](../man/figures/fig1.png){width=100%}
 
 &nbsp;
 
