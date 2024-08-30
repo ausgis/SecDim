@@ -30,6 +30,5 @@ Imports:
     geosphere,
     methods,
     RcppArmadillo,
-    stats,
-    tibble
+    stats
 LazyData: true

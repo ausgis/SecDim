@@ -2,14 +2,13 @@
 #'
 #' @description Generating second-dimension variables for a spatial variable
 #'
-#' @param pointlocation A matrix, data frame or tibble of point locations
-#' @param gridlocation A matrix, data frame or tibble of grid locations
-#' @param gridvar A matrix, data frame or tibble of grid variables
+#' @param pointlocation A matrix or data frame of point locations
+#' @param gridlocation A matrix or data frame of grid locations
+#' @param gridvar A matrix or data frame of grid variables
 #' @param distbuf A vector of distance buffer values
 #' @param quantileprob A vector of quantile probability values
 #'
 #' @return A data frame containing the selected variables for the second dimension
-#'
 #'
 #' @examples
 #' data(obs)
