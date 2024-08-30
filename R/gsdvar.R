@@ -2,16 +2,14 @@
 #'
 #' @description Generating second-dimension variables for a spatial variable
 #'
-#' @param pointlocation A matrix or data frame of point locations
-#' @param gridlocation A matrix or data frame of grid locations
-#' @param gridvar A matrix or data frame of grid variables
+#' @param pointlocation A matrix, data frame or tibble of point locations
+#' @param gridlocation A matrix, data frame or tibble of grid locations
+#' @param gridvar A matrix, data frame or tibble of grid variables
 #' @param distbuf A vector of distance buffer values
 #' @param quantileprob A vector of quantile probability values
 #'
 #' @return A data frame containing the selected variables for the second dimension
 #'
-#' @importFrom geosphere distHaversine
-#' @importFrom stats quantile
 #'
 #' @examples
 #' data(obs)
@@ -28,7 +26,8 @@
 #'
 
 gsdvar <- function(pointlocation, gridlocation, gridvar,
-                   distbuf = seq(1, 10, 1), quantileprob = seq(0, 1, 0.1)) {
+                   distbuf = seq(1, 10, 1),
+                   quantileprob = seq(0, 1, 0.1)) {
 
   samples <- as.data.frame(pointlocation)
   grids <- as.data.frame(gridlocation)
@@ -44,14 +43,14 @@ gsdvar <- function(pointlocation, gridlocation, gridvar,
   names(xx) <- namexx
 
   for (i in 1:nrow(samples)) {
-    zi <- distHaversine(samples[i, ], grids, r = 6378137) / 1000
-    h <- lapply(distbuf, function(x) which(zi < x))
+    zi <- geosphere::distHaversine(samples[i, ], grids, r = 6378137) / 1000
+    h <- lapply(distbuf, \(x) which(zi < x))
 
 
     xxi <- matrix(NA, nbuf, nprob)
 
     for (t in 1:nbuf) {
-      xj <- sapply(quantileprob, function(x) quantile(gridvar[h[[t]]], x))
+      xj <- sapply(quantileprob, \(x) stats::quantile(gridvar[h[[t]]], x))
       xxi[t, ] <- xj
     }
     xx[i, ] = as.vector(t(xxi))

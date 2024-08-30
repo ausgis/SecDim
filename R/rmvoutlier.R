@@ -9,7 +9,6 @@
 #'
 #' @return Location of outliers in the vector
 #'
-#' @importFrom stats sd
 #'
 #' @examples
 #' data("obs")
@@ -22,8 +21,8 @@
 
 rmvoutlier <- function(x, coef = 2.5){
   k <- which((is.na(x)) |
-               (x > (mean(x, na.rm = T) + coef * sd(x, na.rm = T)) |
-                  x < (mean(x, na.rm = T) - coef * sd(x, na.rm = T))  ))
+               (x > (mean(x, na.rm = T) + coef * stats::sd(x, na.rm = T)) |
+                  x < (mean(x, na.rm = T) - coef * stats::sd(x, na.rm = T))  ))
   if (length(k) > 0) {
     message("Remove ", length(k), " outlier(s)")
   } else {
