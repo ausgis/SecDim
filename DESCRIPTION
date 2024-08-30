@@ -23,5 +23,9 @@ License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+URL: https://github.com/ausgis/SecDim, https://ausgis.github.io/SecDim/
+BugReports: https://github.com/ausgis/SecDim/issues
+Depends: R (>= 4.1.0)
 Imports: 
     tibble
+LazyData: true
