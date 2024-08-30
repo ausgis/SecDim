@@ -31,8 +31,7 @@ Imports:
     methods,
     RcppArmadillo,
     stats
-LazyData: true
 Suggests: 
     knitr,
     rmarkdown
-VignetteBuilder: knitr
+LazyData: true
