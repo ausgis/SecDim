@@ -22,7 +22,6 @@ knitr::opts_chunk$set(
 [![CRAN](https://www.r-pkg.org/badges/version/SecDim)](https://CRAN.R-project.org/package=SecDim)
 [![Downloads](https://cranlogs.r-pkg.org/badges/SecDim)](https://CRAN.R-project.org/package=SecDim)
 [![DOI](https://ausgis.github.io/badges/secdim_paper.svg)](https://doi.org/10.1016/j.jag.2022.102834)
-"[![](https://img.shields.io/badge/doi-10.1016/j.jag.2022.102834-#50bf26.svg)](https://doi.org/10.1016/j.jag.2022.102834)"
 [![r-universe](https://ausgis.r-universe.dev/badges/SecDim)](https://ausgis.r-universe.dev/SecDim)
 
 <!-- badges: end -->
