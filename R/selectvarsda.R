@@ -1,7 +1,7 @@
 #' Selecting variables for the SDA model
 #'
-#' @description Function for selecting variables for
-#' the second deminsion of spatial association (SDA) model
+#' @description
+#' Function for selecting variables for the second dimension of spatial association (SDA) model
 #'
 #' @usage selectvarsda(y, xlist)
 #'

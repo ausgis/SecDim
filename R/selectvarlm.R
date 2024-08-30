@@ -2,16 +2,12 @@
 #'
 #' @description Function for selecting variables using linear regression
 #'
-#' @usage selectvarlm(y, x, ctr.vif = 10)
 #'
 #' @param y A vector of a response variable
 #' @param x A data.frame of explanatory variables
 #' @param ctr.vif A number of VIF threshold
 #'
 #' @return A data.frame of selected variables
-#'
-#' @importFrom stats cor
-#' @importFrom methods is
 #'
 #' @examples
 #' data("obs")
@@ -28,7 +24,7 @@
 selectvarlm <- function(y, x, ctr.vif = 10){
 
   ## rank x by correlations ### debug
-  c1 <- cor(cbind(y, x), method = "pearson")
+  c1 <- stats::cor(cbind(y, x), method = "pearson")
   c2 <- abs(c1[1, -1])
   order.x <- rev(order(c2))
   x3 <- x[,order.x]
@@ -62,9 +58,9 @@ selectvarlm <- function(y, x, ctr.vif = 10){
 
   selected.x.data <- x3[, xk]
 
-  if (is(selected.x.data, "data.frame")){
-    # debug: convert a vector to dataframe
-    # debug: use is()
+  if (methods::is(selected.x.data, "data.frame")){
+    # debug: convert a vector to data frame
+    # debug: use methods::is()
     selected.x.data <- data.frame(selected.x.data)
     names(selected.x.data) <- names(x)[xk]
   }
