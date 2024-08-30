@@ -1,4 +1,7 @@
 url: https://ausgis.github.io/SecDim/
 template:
   bootstrap: 5
+  bootswatch: spacelab
+  math-rendering: mathjax
+  light-switch: true
 
