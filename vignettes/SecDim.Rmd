@@ -1,20 +1,23 @@
 ---
-title: "`SecDim` Package for The Second Dimension of Spatial Association"
+title: "The Second Dimension of Spatial Association"
 author: "Yongze Song"
-date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
     fig_caption: true
     self_contained: yes
 vignette: >
-  %\VignetteIndexEntry{`SecDim` Package for The Second Dimension of Spatial Association} 
+  %\VignetteIndexEntry{The Second Dimension of Spatial Association} 
   %\VignetteEncoding{UTF-8} 
   %\VignetteEngine{knitr::rmarkdown}
 ---
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.path = 'fig/')
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "##",
+  fig.path = "man/figures/"
+)
 ```
 
 
@@ -26,19 +29,17 @@ knitr::opts_chunk$set(echo = TRUE, fig.path = 'fig/')
 
 ## Introduction to `SecDim` package
 
-Install and use the package `SecDim`
+Load `SecDim` package
 
-```{r, eval = FALSE}
-## install and library the pacakge
-install.packages("SecDim")
-library("SecDim")
+```{r}
+library(SecDim)
 ```
 
 Here is an example of the spatial prediction using SDA models. 
 
 (1) Preparing data
 
-```{r, eval = FALSE}
+```{r}
 # spatial data of response variables
 data("obs")
 # spatial data of optional SDA explanatory variables:
@@ -50,7 +51,7 @@ data("sample_vars_sda")
 
 (2) Data pre-processing: logarithm transformation and removing outliers
 
-```{r, eval = FALSE}
+```{r}
 obs$y <- obs$Cr_ppm
 hist(obs$y)
 obs$y <- log(obs$y)
@@ -62,28 +63,28 @@ x <- lapply(sample_vars_sda, function(x) x[-krm,])
 ```
 
 (3) selecting the second dimension variables for SDA models
-```{r, eval = FALSE}
-system.time({ # ~2s
+
+```{r}
+system.time({
   sx <- selectvarsda(y, xlist = x)
 })
 ```
 
 (4) SDA modeling
 
-```{r, eval = FALSE}
+```{r}
 data.sda <- cbind(y, sx)
-sda.lm <- lm(y ~., data.sda)
+sda.lm <- lm(y ~ ., data.sda)
 summary(sda.lm)
 ```
 
 (5) comparing with FDA 
 
-```{r, eval = FALSE}
+```{r}
 data("sample_vars_fda")
 data.fda <- data.frame(y, sample_vars_fda[-krm,])
 fda.lm <- lm(y ~., data.fda)
 summary(fda.lm)
-
 ```
 
 &nbsp; 
@@ -91,14 +92,7 @@ summary(fda.lm)
 
 ## Cross validation
 
-![**Figure 1**. Comparison of cross validation between SDA and FDA models for spatial predictions.](../man/figures/fig1.png){width=100%}
-
-
-```{r, eval = FALSE}
-## install and library the pacakge
-install.packages("SecDim")
-library("SecDim")
-
+```{r cross_validation,fig.width=7.5,fig.height=4.5,fig.cap=knitr::asis_output("**Figure 1**. Comparison of cross validation between SDA and FDA models for spatial predictions.")}
 R2 <- function(o, p) 1 - sum((o-p)^2)/sum((o-mean(o))^2)
 
 ## Example 
