@@ -28,6 +28,7 @@ BugReports: https://github.com/ausgis/SecDim/issues
 Depends: R (>= 4.1.0)
 Imports: 
     geosphere,
+    RcppArmadillo,
     stats,
     tibble
 LazyData: true

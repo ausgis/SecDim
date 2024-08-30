@@ -2,9 +2,7 @@
 #'
 #' @description Function for removing outliers.
 #'
-#' @usage rmvoutlier(x, coef = 2.5)
-#'
-#' @param x A vector of a variale
+#' @param x A vector of a variable
 #' @param coef A number of the times of standard deviation. The default value is 2.5.
 #'
 #' @return Location of outliers in the vector
