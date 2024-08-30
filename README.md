@@ -1,19 +1,5 @@
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "##",
-  fig.path = "man/figs/README-",
-  out.width = "100%",
-  warning = FALSE,
-  message = FALSE
-)
-```
 
 # SecDim
 
@@ -22,7 +8,7 @@ knitr::opts_chunk$set(
 [![CRAN](https://www.r-pkg.org/badges/version/SecDim)](https://CRAN.R-project.org/package=SecDim)
 [![Downloads](https://cranlogs.r-pkg.org/badges/SecDim)](https://CRAN.R-project.org/package=SecDim)
 [![DOI](https://ausgis.github.io/badges/secdim_paper.svg)](https://doi.org/10.1016/j.jag.2022.102834)
-"[![](https://img.shields.io/badge/doi-10.1016/j.jag.2022.102834-#50bf26.svg)](https://doi.org/10.1016/j.jag.2022.102834)"
+“[![](https://img.shields.io/badge/doi-10.1016/j.jag.2022.102834-#50bf26.svg)](https://doi.org/10.1016/j.jag.2022.102834)”
 [![r-universe](https://ausgis.r-universe.dev/badges/SecDim)](https://ausgis.r-universe.dev/SecDim)
 
 <!-- badges: end -->
@@ -31,8 +17,8 @@ knitr::opts_chunk$set(
 
 Please cite **SecDim** as:
 
-> Song, Y. (2022). The second dimension of spatial association.
-> *Journal of Applied Earth Observation and Geoinformation*,*111*, 102834.
+> Song, Y. (2022). The second dimension of spatial association. *Journal
+> of Applied Earth Observation and Geoinformation*,*111*, 102834.
 > <https://doi.org/10.1016/j.jag.2022.102834>.
 
 A BibTeX entry for LaTeX users is:
@@ -61,14 +47,16 @@ A BibTeX entry for LaTeX users is:
 install.packages("SecDim")
 ```
 
-- Install development binary version from [r-universe](https://ausgis.r-universe.dev/SecDim) with:
+- Install development binary version from
+  [r-universe](https://ausgis.r-universe.dev/SecDim) with:
 
 ``` r
 install.packages('SecDim',repos = c("https://ausgis.r-universe.dev",
                                     "https://cran.rstudio.com/"))
 ```
 
-- Install development source version from [GitHub](https://github.com/ausgis/SecDim) with:
+- Install development source version from
+  [GitHub](https://github.com/ausgis/SecDim) with:
 
 ``` r
 # install.packages("devtools")
