@@ -3,8 +3,6 @@
 #' @description Function for preparing explanatory variables data for
 #' SDA-based prediction or the testing data for cross validation
 #'
-#' @usage sdapredvars(xlist)
-#'
 #' @param xlist A list of the SDA explanatory variables
 #'
 #' @return A data.frame of variables for prediction or validation
