@@ -52,14 +52,14 @@ obs$y <- obs$Cr_ppm
 hist(obs$y)
 ```
 
-![plot of chunk hist1](man/figures/hist1-1.png)
+![](../man/figures/hist1-1.png)
 
 ``` r
 obs$y <- log(obs$y)
 hist(obs$y)
 ```
 
-![plot of chunk hist1](man/figures/hist1-2.png)
+![](../man/figures/hist1-2.png)
 
 ``` r
 
@@ -77,7 +77,7 @@ system.time({
   sx <- selectvarsda(y, xlist = x)
 })
 ##    user  system elapsed 
-##    1.03    0.04    2.10
+##    0.94    0.11    2.19
 ```
 
 (4) SDA modeling
@@ -173,16 +173,9 @@ data("sample_vars_sda")
 # data pre-processing: logarithm transformation
 obs$y <- obs$Cr_ppm
 hist(obs$y)
-```
-
-![plot of chunk hist2](man/figures/hist2-1.png)
-
-``` r
 obs$y <- log(obs$y)
 hist(obs$y)
 ```
-
-![plot of chunk hist2](man/figures/hist2-2.png)
 
 
 ``` r
@@ -201,7 +194,6 @@ testx <- lapply(sample_vars_sda, function(x) x[-train,])
 
 # removing outliers for training data
 krm <- rmvoutlier(trainy$y)
-## Remove 5 outlier(s)
 trainy <- trainy$y[-krm]
 trainx <- lapply(trainx, function(x) x[-krm,])
 
@@ -209,24 +201,16 @@ trainx <- lapply(trainx, function(x) x[-krm,])
 sdaxv <- sdapredvars(testx)
 
 # selecting the second dimension variables for SDA models
-system.time({ # ~1.8s
+system.time({
   sx <- selectvarsda(y = trainy, xlist = trainx)
 })
-##    user  system elapsed 
-##    0.92    0.05    1.53
 
 # SDA modeling and prediction
 data.sda <- cbind("y" = trainy, sx)
-sda.lm <- lm(y ~., data.sda)
+sda.lm <- lm(y ~ ., data.sda)
 sda.lm.pred <- predict(sda.lm, newdata = sdaxv)
 R2(testy$y, sda.lm.pred)
-## [1] -1569974
 plot(testy$y, sda.lm.pred, xlim = c(3, 7), ylim = c(3, 7))
-```
-
-![**Figure 1**. Comparison of cross validation between SDA and FDA models for spatial predictions.](man/figures/cross_validation-1.png)
-
-``` r
 
 ################################################
 ## FDA cross validation
@@ -244,21 +228,18 @@ testx <- sample_vars_fda[-train,]
 
 # removing outliers for training data
 krm <- rmvoutlier(trainy$y)
-## Remove 5 outlier(s)
 trainy <- trainy$y[-krm]
 trainx <- trainx[-krm,]
 
 # FDA modeling and prediction
 data.fda <- data.frame("y" = trainy, trainx)
-fda.lm <- lm(y ~., data.fda)
+fda.lm <- lm(y ~ ., data.fda)
 fda.lm.pred <- predict(fda.lm, newdata = data.frame(testx))
 R2(testy$y, fda.lm.pred)
-## [1] 0.2421975
 plot(testy$y, fda.lm.pred, xlim = c(3, 7), ylim = c(3, 7))
 ```
 
-![**Figure 1**. Comparison of cross validation between SDA and FDA models for spatial predictions.](man/figures/cross_validation-2.png)
-
+![**Figure 1**. Comparison of cross validation between SDA and FDA models for spatial predictions.](../man/figures/fig1.png){width=100%}
 
 &nbsp;
 
