@@ -5,7 +5,7 @@
 \alias{grids}
 \title{Spatial grid dataset.}
 \format{
-\code{grids}: A tibble of explanatory variables with 68757 rows and 11 columns.
+\code{grids}: A data frame of explanatory variables with 68757 rows and 11 columns.
 }
 \usage{
 grids

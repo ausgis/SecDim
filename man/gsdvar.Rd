@@ -13,11 +13,11 @@ gsdvar(
 )
 }
 \arguments{
-\item{pointlocation}{A matrix, data frame or tibble of point locations}
+\item{pointlocation}{A matrix or data frame of point locations}
 
-\item{gridlocation}{A matrix, data frame or tibble of grid locations}
+\item{gridlocation}{A matrix or data frame of grid locations}
 
-\item{gridvar}{A matrix, data frame or tibble of grid variables}
+\item{gridvar}{A matrix or data frame of grid variables}
 
 \item{distbuf}{A vector of distance buffer values}
 

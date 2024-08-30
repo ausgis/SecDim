@@ -5,7 +5,7 @@
 \alias{obs}
 \title{Spatial datasets of trace elements.}
 \format{
-\code{obs}: A tibble of trace elements with 614 rows and 5 variables
+\code{obs}: A data frame of trace elements with 614 rows and 5 variables
 }
 \usage{
 obs
