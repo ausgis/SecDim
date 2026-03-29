@@ -1,9 +1,9 @@
 pandoc: 3.1.11
-pkgdown: 2.1.0
+pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   SecDim: SecDim.html
-last_built: 2024-08-30T09:19Z
+last_built: 2026-03-29T05:07Z
 urls:
   reference: https://ausgis.github.io/SecDim/reference
   article: https://ausgis.github.io/SecDim/articles
