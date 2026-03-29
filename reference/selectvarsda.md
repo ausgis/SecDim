@@ -37,5 +37,5 @@ system.time({ # ~0.01s
   sx <- selectvarsda(y, xlist = x)
 })
 #>    user  system elapsed 
-#>   0.015   0.000   0.015 
+#>   0.015   0.000   0.016 
 ```

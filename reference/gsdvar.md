@@ -53,5 +53,5 @@ sdavars <- gsdvar(pointlocation, gridlocation, gridvar,
                   distbuf = c(1, 2, 3), quantileprob = c(0, 0.5, 1))
 })
 #>    user  system elapsed 
-#>   0.397   0.042   0.438 
+#>   0.406   0.057   0.464 
 ```
